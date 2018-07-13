@@ -1,0 +1,25 @@
+{
+  "name": "boggle-1",
+  "version": "1.0.0",
+  "description": "boggle",
+  "main": "boggle.js",
+  "scripts": {
+    "test": "node boggle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uber-fox-2018/boggle-1.git"
+  },
+  "keywords": [
+    "boggle"
+  ],
+  "author": "arisupriatna14",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uber-fox-2018/boggle-1/issues"
+  },
+  "homepage": "https://github.com/uber-fox-2018/boggle-1#readme",
+  "dependencies": {
+    "cli-table": "^0.3.1"
+  }
+}

@@ -1,4 +1,5 @@
 const fs = require('fs')
+const Table = require('cli-table')
 
 class Boogle {
   constructor (shake, kamus) {
@@ -7,7 +8,7 @@ class Boogle {
     this.abjad = 'abjdefghijklmnopqrstuvwxyz'.toUpperCase()
   }
 
-  printBoard () {
+  createBoard () {
     const abjad = this.abjad
     const shakes = this.shake
     let board = []
@@ -21,8 +22,19 @@ class Boogle {
     return board
   }
 
-  checkHorizontal () {
+  printBoard () {
+    const board = this.createBoard()
+    const table = new Table()
 
+    board.forEach(board => {
+      table.push(board)
+    })
+
+    return table.toString()
+  }
+
+  checkHorizontal () {
+    
   }
 
   checkVertical () {
@@ -41,7 +53,7 @@ class Boogle {
 }
 
 const kamus = require('./my_dictionary')
-const jumlahShake = 10
+const jumlahShake = 4
 const tesBoggle = new Boogle (jumlahShake, kamus)
 
-console.log(tesBoggle)
+console.log(tesBoggle.printBoard())
