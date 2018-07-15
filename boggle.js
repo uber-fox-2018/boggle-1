@@ -1,3 +1,6 @@
+let argv = process.argv
+let init = argv.slice(2)
+
 class boggle {
     constructor (word) {
         this.word = word
@@ -115,7 +118,7 @@ class boggle {
 
                     console.log('STEP 2 = generate random alphabeth\n')
                     console.log(res)
-                    this.sleep(200)
+                    this.sleep(50)
                     console.clear()
 
                 }
@@ -155,6 +158,7 @@ class boggle {
 
         return arr
     }
+    
     searcherWord(num,y,x,map) {
         if (num === 1) { // kiri atas
             if (typeof map[y-1] !== 'undefined' && typeof map[y-1][x-1] !== 'undefined') {
@@ -287,5 +291,11 @@ class boggle {
 var wordStore = ["APPLE","SIT","TRIP","TURN","SUPER"]
 var game = new boggle(wordStore)
 
+if (init[0] < 4 || init.length === 0) {
+    console.clear()
+    console.log('\n INPUT HARUS NUMBER DAN DI ATAS 4\n')
+    
+} else {
+    console.log(game.boardMaker(init[0]))    
+}
 
-console.log(game.boardMaker(5))
