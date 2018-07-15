@@ -4,7 +4,7 @@ function board(num) {
       for (var i = 0; i < num; i++){
           arrBoard.push([]);
           for(var j = 0; j < num; j++){
-              arrBoard[i].push(alphabet[Math.floor(Math.random() * 26)]);
+              arrBoard[i].push(alphabet[Math.floor(Math.random() * alphabet.length)]);
           }
       }
       return arrBoard;
@@ -12,28 +12,28 @@ function board(num) {
   
   function solve(words,num){
   
-    var boggle = board(num)
-    var arrFound = []
+    let boggle = board(num)
+    let resultFound = []
   
-    for (var counter = 0; counter < words.length; counter++) {
+    for (let count = 0; count < words.length; count++) {
   
       for (var i = 0; i < num; i++) {
         for (var j = 0; j < num; j++) {
-          if (boggle[i][j] === words[counter][0]) {
+          if (boggle[i][j] === words[count][0]) {
   
-            var coori = i
-            var coorj = j
-            var potong0 = words[counter].slice(1)
+            var corX = i
+            var corY = j
+            var cut = words[count].slice(1)
   
-            var cek = checkKeliling(coori,coorj,potong0,boggle)
+            var cek = checkAround(corX,corY,cut,boggle)
   
-            if (checkKeliling(coori,coorj,potong0,boggle) === true) {
-              boggle[i][j] = words[counter][0]
-              arrFound.push(words[counter])
+            if (checkAround(corX,corY,cut,boggle) === true) {
+              boggle[i][j] = words[count][0]
+              resultFound.push(words[count])
               break;
             }
-            else if (checkKeliling(coori,coorj,potong0,boggle) === false) {
-              boggle[coori][coorj] = words[counter][0]
+            else if (checkAround(corX,corY,cut,boggle) === false) {
+              boggle[corX][corY] = words[count][0]
             }
           }
         }
@@ -45,11 +45,11 @@ function board(num) {
     }
   
     // console.log(boggle);
-    if (arrFound.length > 0) {
+    if (resultFound.length >= 0) {
   
-      console.log(arrFound.length +  ' kata ditemukan :');
-      for (var i = 0; i < arrFound.length; i++) {
-        console.log(arrFound[i]);
+      console.log(resultFound.length +  ' kata ditemukan :');
+      for (var i = 0; i < resultFound.length; i++) {
+        console.log(resultFound[i]);
       }
     }
     else{
@@ -57,46 +57,46 @@ function board(num) {
     }
   }
   
-  function checkKeliling(coori,coorj,potong0,boggle) {
+  function checkAround(corX,corY,cut,boggle) {
+    
+    var upX = corX + 1
+    var downX = corX - 1
   
-    var atasi = coori + 1
-    var bawahi = coori - 1
+    var upY = corY + 1
+    var downY = corY - 1
   
-    var atasj = coorj + 1
-    var bawahj = coorj - 1
+    var words = cut
   
-    var words = potong0
+    if (cut.length > 0) {
   
-    if (potong0.length > 0) {
-  
-      if (bawahi < 0) {
-        bawahi = coori
+      if (downX < 0) {
+        downX = corX
       }
-      else if (atasi > boggle.length-1) {
-        atasi = coori
-      }
-  
-      if (bawahj < 0){
-        bawahj = coorj
-      }
-      else if (atasj > boggle.length-1) {
-        atasj = coorj
+      else if (upX > boggle.length-1) {
+        upX = corX
       }
   
-      for (var i = bawahi; i <= atasi; i++){
-        for (var j = bawahj; j <= atasj; j++){
+      if (downY < 0){
+        dpwnY = corY
+      }
+      else if (upY > boggle.length-1) {
+        upY = corY
+      }
   
-          if (potong0[0] === boggle[i][j]) {
+      for (var i = downX; i <= upX; i++){
+        for (var j = downY; j <= upY; j++){
   
-            var coori = i
-            var coorj = j
+          if (cut[0] === boggle[i][j]) {
   
-            var potong0 = words.slice(1)
+            var corX = i
+            var corY = j
   
-            var cek = checkKeliling(coori,coorj,potong0,boggle)
+            var cut = words.slice(1)
+  
+            var cek = checkAround(corX,corY,cut,boggle)
   
             if (cek === true) {
-              boggle[coori][coorj] = words[0]
+              boggle[corX][corY] = words[0]
               return true
             }
             else if (cek === false) {
@@ -115,6 +115,8 @@ function board(num) {
     return cek;
   
   }
+  
+  
   
   var data = ["ABA","ABAD","ABADI","ABAH","ABAI","ABAL","AKUSTIKA","AKUT","AKWAL","AL","ALA","ALABANGKA","ALABIO","ALAF","ALAH",
   "DENYUT","DEODORAN","DEOKNUMISASI","DEONTOLOGI","DEP","DEPA","DEPAK","DEPALATALISASI","DEPAN","DEPANG","DEPAP","DEPARPOLISASI","DEPARTEMEN","DEPARTEMENTAL","DEPARTEMENTALISASI","DEPENDEN","DEPENDENSI","DEPERSONALISASI","DEPERSONIFIKASI","DEPIGMENTASI","DEPILASI","DEPLESI","DEPO","DEPOLARISASI","DEPOLITISASI",
