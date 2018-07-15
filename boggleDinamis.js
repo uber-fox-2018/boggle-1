@@ -15,6 +15,7 @@
         2) LOOPING KEDUA
             berfungsi sebagai linear search pada board untuk menemukan huruf pertama 
             kamus ada atau tidak dalam board, jika ada akan dilanjutkan pada method cek
+            jika tidak ganti kata
        
 
 3) cek ()
@@ -24,7 +25,7 @@
     jika ada akan return true dan ganti huruf ---> menggunakan rekusif untuk ganti huruf 
 */
 
-class BoggleBoardStatik {
+class BoggleBoardDinamis {
     constructor  (kamus,boardSize){
         this.dataKamus = kamus
         this.size = boardSize
@@ -179,5 +180,5 @@ class BoggleBoardStatik {
 
 let kamus = ['APPLE', 'SIT', 'TRIP', 'SUPER','TURN']
 let boardSize = 10
-let game = new BoggleBoardStatik (kamus,boardSize)
+let game = new BoggleBoardDinamis (kamus,boardSize)
 console.log(game.solve())
