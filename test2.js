@@ -82,6 +82,8 @@ class Boggle {
         var lastI = row + 2
         var lastJ = col + 2
         
+        
+        
         for(let i = x; i < lastI; i++){
             for(let j = y; j < lastJ; j++){
             if(thisBoard[i] && thisBoard[i][j]){
