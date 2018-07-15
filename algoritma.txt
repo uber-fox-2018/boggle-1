@@ -1,0 +1,10 @@
+1. Buat kamus untuk menampung kalimat atau kata yang akan dicari pada papan boggle
+2. Method utama adalah solve()
+3. Pada constructor buat board dengan jawaban yang sudah disiapkan terlebih dahulu untuk 
+   menyesuakian dengan kamus yang sudah dibuat
+      [ [' ',' ',' ',' ',' '],
+        [' ','D',' ',' ','S'],
+        [' ','I','C',' ','L'],
+        [' ',' ','P','E','E'],
+        [' ',' ',' ',' ',' '], ]
+4. 
