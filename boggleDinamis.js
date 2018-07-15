@@ -179,6 +179,6 @@ class BoggleBoardDinamis {
 }
 
 let kamus = ['APPLE', 'SIT', 'TRIP', 'SUPER','TURN']
-let boardSize = 10
+let boardSize = process.argv[2]
 let game = new BoggleBoardDinamis (kamus,boardSize)
 console.log(game.solve())
