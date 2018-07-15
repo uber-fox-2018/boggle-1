@@ -113,15 +113,18 @@ class Boggle {
         // console.log(containArr);
         
         for (let i = 0; i < containArr.length; i++) {
-        for (let j = 0; j < containArr[i].length; j++) {
-            for (let k = 0; k < correctArr.length; k++) {
-            if (containArr[i][j] === correctArr[k]) {
-                counter++
-                resultArr.push(containArr[i][j])
-                var result = 'You find the words: ' + resultArr + ' | your score is: ' + counter
-            }
+            for (let j = 0; j < containArr[i].length; j++) {
+                for (let k = 0; k < correctArr.length; k++) {
+                if (containArr[i][j] === correctArr[k]) {
+                    counter++
+                    resultArr.push(containArr[i][j])
+                    var result = 'You find the words: ' + resultArr + ' | your score is: ' + counter
+                }
+                }
             }
         }
+        if(result === undefined) {
+            return 'sorry no words find'
         }
         return result
     }
