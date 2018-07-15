@@ -1,5 +1,1 @@
-1. Buat class dengan nama boggle
-2. pada boggle buat method constructor dengan parameter dictionary
-3. Buat variabel dengan nama dictionary yang berisi ['APPLE','DEAD','SIT','TURN','SUPER']
-3. Buat variabel dengan nama game untuk nenampung class boggle | var game = new boggle(dictionary)
-4. Pada class boggle buat method dengan nama board untuk tampilan boardnya
+
