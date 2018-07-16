@@ -64,9 +64,9 @@ class BoggleBoard {
           for (let l in this.mainBoard[k]){
             if (this.dictionary[i][j] === this.mainBoard[k][l]){
               if (!this.lettersPos[this.dictionary[i][j]]){
-                this.lettersPos[this.dictionary[i][j]] = [[k,l]];
+                this.lettersPos[this.dictionary[i][j]] = [[+k,+l]];
               } else {
-                this.lettersPos[this.dictionary[i][j]].push([k,l]);
+                this.lettersPos[this.dictionary[i][j]].push([+k,+l]);
               }
             }
           }
