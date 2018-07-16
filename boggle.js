@@ -6,7 +6,7 @@ class BoggleBoard {
     this.dictionary = [
       'BIGGOD',
       'BADDOG',
-      'FADED'
+      'FADED',
     ]
     this.mainBoard = null
     this.lettersPos = {} // objOfArr
